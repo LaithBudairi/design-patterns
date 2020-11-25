@@ -18,6 +18,8 @@ import ps.exalt.designpatterns.factory.classes.NotificationFactory;
 import ps.exalt.designpatterns.factory.enums.NotificationType;
 import ps.exalt.designpatterns.factory.interfaces.Notification;
 import ps.exalt.designpatterns.singleton.Singleton;
+import ps.exalt.designpatterns.state.classes.AlertStateContext;
+import ps.exalt.designpatterns.state.classes.Silent;
 
 public class Main {
 
@@ -96,6 +98,16 @@ public class Main {
         House house = engineer.getHouse();
 
         System.out.println("Builder constructed: "+ house);
+        System.out.println();
+
+        // State
+        AlertStateContext stateContext = new AlertStateContext();
+        stateContext.alert();
+        stateContext.alert();
+        stateContext.setState(new Silent());
+        stateContext.alert();
+        stateContext.alert();
+        stateContext.alert();
 
     }
 }
